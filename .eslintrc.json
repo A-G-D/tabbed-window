@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": ["standard", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-lone-blocks": "off",
+    "no-unused-vars": "warn",
+    "import/no-webpack-loader-syntax": "off"
+  },
+  "parser": "@babel/eslint-parser"
+}
