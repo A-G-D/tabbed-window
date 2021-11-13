@@ -1,0 +1,44 @@
+tabbed-window-body {
+  background-color: #808080;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: start;
+  align-items: stretch;
+
+  &[header-location="top"] {
+    border: 1px solid black;
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    padding: 0 8px 8px 8px;
+  }
+
+  &[header-location="bottom"] {
+    border: 1px solid black;
+    border-bottom: 0;
+    border-radius: 12px 12px 0 0;
+    padding: 8px 8px 0 8px;
+  }
+
+  &[header-location="left"] {
+    border: 1px solid black;
+    border-left: 0;
+    border-radius: 0 12px 12px 0;
+    padding: 8px 8px 8px 0;
+  }
+
+  &[header-location="right"] {
+    border: 1px solid black;
+    border-right: 0;
+    border-radius: 12px 0 0 12px;
+    padding: 8px 0 8px 8px;
+  }
+
+  /* TO-DO: adjust according to orientation via javascript */
+  & > .contents {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+}

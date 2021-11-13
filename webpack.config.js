@@ -1,25 +1,24 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    index: './src/index.js'
+    index: "./src/index.js",
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    static: './dist'
+    static: "./dist",
   },
   module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          "postcss-loader",
-          "sass-loader"
-        ],
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+      },
+      {
+        test: /\.less$/i,
+        use: ["style-loader", "css-loader", "less-loader"],
       },
       {
         test: /\.html$/i,
@@ -29,27 +28,27 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: [
-              ['@babel/preset-env', { targets: "defaults" }]
-            ],
+            presets: [["@babel/preset-env", { targets: "defaults" }]],
           },
         },
       },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(
-      {
-        title: 'tabbed-window',
-        template: './src/index.html'
-      }
-    )
+    new HtmlWebpackPlugin({
+      title: "tabbed-window",
+      template: "./src/index.html",
+    }),
   ],
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true
-  }
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+    library: {
+      name: "tabbed-window",
+      type: "umd",
+    },
+  },
 };
