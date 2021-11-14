@@ -1,8 +1,8 @@
 {
-  "name": "tabbed-window",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/tabbed_window.bundle.js",
+  "name": "@modular-ui/tabbed-window",
+  "version": "0.1.0",
+  "description": "Modular Tabbed-Window UI component",
+  "main": "dist/tabbed_window.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
