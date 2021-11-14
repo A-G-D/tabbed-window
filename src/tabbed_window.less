@@ -1,26 +1,4 @@
-tabbed-window {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  height: 480px;
-  width: 75%;
-  flex: 1 1 auto;
-  resize: both;
-  overflow: auto;
-
-  &[header-location="top"] {
-    flex-direction: column;
-  }
-
-  &[header-location="bottom"] {
-    flex-direction: column-reverse;
-  }
-
-  &[header-location="left"] {
-    flex-direction: row;
-  }
-
-  &[header-location="right"] {
-    flex-direction: row-reverse;
-  }
-}
+@import "./styles/styles.less";
+@import "./styles/orientation.less";
+@import "./styles/direction.less";
+@import "./styles/alignment.less";

@@ -1,102 +1,17 @@
 tabbed-window-header {
   background-color: #808080;
+  border: 1px solid black;
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  &[header-location="top"] {
-    border: 1px solid black;
-    border-bottom: 0;
-    border-radius: 12px 12px 0 0;
-    padding: 4px 8px 0 8px;
-  }
-
-  &[header-location="bottom"] {
-    border: 1px solid black;
-    border-top: 0;
-    border-radius: 0 0 12px 12px;
-    padding: 0 8px 4px 8px;
-  }
-
-  &[header-location="left"] {
-    border: 1px solid black;
-    border-right: 0;
-    border-radius: 12px 0 0 12px;
-    padding: 8px 0 8px 4px;
-
-    &[reverse] {
-      flex-direction: column-reverse;
-    }
-  }
-
-  &[header-location="right"] {
-    border: 1px solid black;
-    border-left: 0;
-    border-radius: 0 12px 12px 0;
-    padding: 8px 4px 8px 0;
-
-    &[reverse] {
-      flex-direction: column-reverse;
-    }
-  }
+  gap: 16px;
 
   & > .links {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
     flex: 1 1 auto;
-    overflow-x: auto;
-    overflow-y: auto;
-
-    &[header-location="top"] {
-      padding: 4px 4px 0 4px;
-
-      &[reverse] {
-        flex-direction: row-reverse;
-      }
-    }
-
-    &[header-location="bottom"] {
-      padding: 0 4px 4px 4px;
-
-      &[reverse] {
-        flex-direction: row-reverse;
-      }
-    }
-
-    &[header-location="left"] {
-      padding: 4px 0 4px 4px;
-
-      &[reverse] {
-        flex-direction: column-reverse;
-      }
-
-      &[change-orientation] {
-        justify-content: flex-start;
-      }
-    }
-
-    &[header-location="right"] {
-      padding: 4px 4px 4px 0;
-
-      &[reverse] {
-        flex-direction: column-reverse;
-      }
-
-      &[change-orientation] {
-        justify-content: flex-start;
-      }
-    }
-  }
-
-  & > .spacer {
-    width: 24px;
-    min-width: 24px;
-    max-width: 48px;
-    height: 0;
-    min-height: 0;
-    max-height: 0;
-    flex: 1 1 auto;
+    overflow: auto;
   }
 
   & > .new-tab-button {

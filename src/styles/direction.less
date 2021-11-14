@@ -1,0 +1,139 @@
+@import "./constants.less";
+
+tabbed-window {
+  &[header-location="top"] {
+    & > tabbed-window-header {
+      &[reverse] {
+        flex-direction: row-reverse;
+      }
+
+      & > .links {
+        &[reverse] {
+          flex-direction: row-reverse;
+        }
+
+        tabbed-window-link {
+          &[reverse] {
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      & > .contents {
+        &[reverse] {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+
+  &[header-location="bottom"] {
+    & > tabbed-window-header {
+      &[reverse] {
+        flex-direction: row-reverse;
+      }
+
+      & > .links {
+        &[reverse] {
+          flex-direction: row-reverse;
+        }
+
+        tabbed-window-link {
+          &[reverse] {
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      & > .contents {
+        &[reverse] {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+
+  &[header-location="left"] {
+    & > tabbed-window-header {
+      &[reverse] {
+        flex-direction: column-reverse;
+      }
+
+      &:not([reverse]) {
+        flex-direction: column;
+      }
+
+      & > .links {
+        &[reverse] {
+          flex-direction: column-reverse;
+        }
+
+        &:not([reverse]) {
+          flex-direction: column;
+        }
+
+        tabbed-window-link {
+          &[reverse] {
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      & > .contents {
+        &[reverse] {
+          flex-direction: column-reverse;
+        }
+
+        &:not([reverse]) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  &[header-location="right"] {
+    & > tabbed-window-header {
+      &[reverse] {
+        flex-direction: column-reverse;
+      }
+
+      &:not([reverse]) {
+        flex-direction: column;
+      }
+
+      & > .links {
+        &[reverse] {
+          flex-direction: column-reverse;
+        }
+
+        &:not([reverse]) {
+          flex-direction: column;
+        }
+
+        & > tabbed-window-link {
+          &[reverse] {
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      & > .contents {
+        &[reverse] {
+          flex-direction: column-reverse;
+        }
+
+        &:not([reverse]) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

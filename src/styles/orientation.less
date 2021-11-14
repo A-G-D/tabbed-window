@@ -1,0 +1,176 @@
+@import "./constants.less";
+
+tabbed-window {
+  &[header-location="top"] {
+    flex-direction: column;
+
+    & > tabbed-window-header {
+      border-bottom: 0;
+      border-radius: @header-border-radius @header-border-radius 0 0;
+      padding: @header-padding-cross @header-padding-main 0 @header-padding-main;
+
+      & > .links {
+        padding: @links-padding-cross @links-padding-main 0 @links-padding-main;
+
+        tabbed-window-link {
+          border-radius: @tab-link-border-radius @tab-link-border-radius 0 0;
+          padding: @tab-link-padding-cross @tab-link-padding-main;
+
+          & > .content {
+            padding: 0px;
+          }
+
+          & > .close-tab-button {
+            padding: 4px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      border-top: 0;
+      border-radius: 0 0 @body-border-radius @body-border-radius;
+      padding: 0 @body-padding-main @body-padding-cross @body-padding-main;
+
+      & > .contents {
+        & > tabbed-window-content {
+          border-radius: 0 0 @tab-content-border-radius
+            @tab-content-border-radius;
+          padding: @tab-content-padding-cross @tab-content-padding-main;
+        }
+      }
+    }
+  }
+
+  &[header-location="bottom"] {
+    flex-direction: column-reverse;
+
+    & > tabbed-window-header {
+      border-top: 0;
+      border-radius: 0 0 @header-border-radius @header-border-radius;
+      padding: 0 @header-padding-main @header-padding-cross @header-padding-main;
+
+      & > .links {
+        padding: 0 @links-padding-main @links-padding-cross @links-padding-main;
+
+        tabbed-window-link {
+          border-radius: 0 0 @tab-link-border-radius @tab-link-border-radius;
+          padding: @tab-link-padding-cross @tab-link-padding-main;
+
+          & > .content {
+            padding: 0px;
+          }
+
+          & > .close-tab-button {
+            padding: 4px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      border-bottom: 0;
+      border-radius: @body-border-radius @body-border-radius 0 0;
+      padding: @body-padding-cross @body-padding-main 0 @body-padding-main;
+
+      & > .contents {
+        & > tabbed-window-content {
+          border-radius: @tab-content-border-radius @tab-content-border-radius 0
+            0;
+          padding: @tab-content-padding-cross @tab-content-padding-main;
+        }
+      }
+    }
+  }
+
+  &[header-location="left"] {
+    flex-direction: row;
+
+    & > tabbed-window-header {
+      border-right: 0;
+      border-radius: @header-border-radius 0 0 @header-border-radius;
+      padding: @header-padding-cross 0 @header-padding-cross
+        @header-padding-main;
+
+      & > .links {
+        padding: @links-padding-main 0 @links-padding-main @links-padding-cross;
+
+        tabbed-window-link {
+          border-radius: @tab-link-border-radius 0 0 @tab-link-border-radius;
+          padding: 8px;
+
+          & > .content {
+            padding: 0px;
+          }
+
+          & > .close-tab-button {
+            padding: 4px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      border-left: 0;
+      border-radius: 0 @body-border-radius @body-border-radius 0;
+      padding: @body-padding-main @body-padding-cross @body-padding-main 0;
+
+      & > .contents {
+        & > tabbed-window-content {
+          border-radius: 0 @tab-content-border-radius @tab-content-border-radius
+            0;
+          padding: @tab-content-padding-main @tab-content-padding-cross;
+        }
+      }
+    }
+  }
+
+  &[header-location="right"] {
+    flex-direction: row-reverse;
+
+    & > tabbed-window-header {
+      border-left: 0;
+      border-radius: 0 @header-border-radius @header-border-radius 0;
+      padding: @header-padding-main @header-padding-cross @header-padding-main 0;
+
+      & > .links {
+        padding: @links-padding-main @links-padding-cross @links-padding-main 0;
+
+        & > tabbed-window-link {
+          border-radius: 0 @tab-link-border-radius @tab-link-border-radius 0;
+          padding: 8px;
+
+          & > .content {
+            padding: 0px;
+          }
+
+          & > .close-tab-button {
+            padding: 4px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    & > tabbed-window-body {
+      border-right: 0;
+      border-radius: @body-border-radius 0 0 @body-border-radius;
+      padding: @body-padding-main 0 @body-padding-main @body-padding-cross;
+
+      & > .contents {
+        & > tabbed-window-content {
+          border-radius: @tab-content-border-radius 0 0
+            @tab-content-border-radius;
+          padding: @tab-content-padding-main @tab-content-padding-cross;
+        }
+      }
+    }
+  }
+}

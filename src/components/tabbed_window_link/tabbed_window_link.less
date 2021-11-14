@@ -5,43 +5,6 @@ tabbed-window-link {
   display: flex;
   flex: 1 1 auto;
 
-  &[header-location="top"] {
-    border-radius: 12px 12px 0 0;
-    padding: 8px;
-  }
-
-  &[header-location="bottom"] {
-    border-radius: 0 0 12px 12px;
-    padding: 8px;
-  }
-
-  &[header-location="left"] {
-    border-radius: 12px 0 0 12px;
-    padding: 8px;
-
-    &[change-orientation] {
-      flex-direction: column;
-    }
-
-    &:not([change-orientation]) {
-      flex-direction: row-reverse;
-      flex: 0 0 auto;
-    }
-  }
-
-  &[header-location="right"] {
-    border-radius: 0 12px 12px 0;
-    padding: 8px;
-
-    &[change-orientation] {
-      flex-direction: column;
-    }
-
-    &:not([change-orientation]) {
-      flex: 0 0 auto;
-    }
-  }
-
   &.active {
     color: rgba(0, 0, 0, 1);
     background-color: #a0a0a0c0;
@@ -53,22 +16,6 @@ tabbed-window-link {
     justify-content: center;
     align-items: center;
     flex: 1 1 auto;
-
-    &[header-location="top"] {
-      padding: 0px;
-    }
-
-    &[header-location="bottom"] {
-      padding: 0px;
-    }
-
-    &[header-location="left"] {
-      padding: 0px;
-    }
-
-    &[header-location="right"] {
-      padding: 0px;
-    }
   }
 
   & > .close-tab-button {
@@ -76,30 +23,6 @@ tabbed-window-link {
     font-family: Consolas;
     cursor: pointer;
     border-radius: 50%;
-
-    &[header-location="top"] {
-      padding: 4px;
-      width: 16px;
-      height: 16px;
-    }
-
-    &[header-location="bottom"] {
-      padding: 4px;
-      width: 16px;
-      height: 16px;
-    }
-
-    &[header-location="left"] {
-      padding: 4px;
-      width: 16px;
-      height: 16px;
-    }
-
-    &[header-location="right"] {
-      padding: 4px;
-      width: 16px;
-      height: 16px;
-    }
 
     &:hover {
       background-color: #404040;

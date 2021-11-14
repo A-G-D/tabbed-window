@@ -28,8 +28,6 @@ export class TabbedWindow extends HTMLElement {
     this.#tabs = [];
     this.#html = html;
 
-    this.headerLocation = "top";
-
     this.appendChild(this.#header);
     this.appendChild(this.#body);
 

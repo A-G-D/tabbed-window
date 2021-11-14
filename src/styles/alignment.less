@@ -1,0 +1,27 @@
+@import "./constants.less";
+
+tabbed-window {
+  &[header-location="left"] {
+    &:not([adjust-links-orientation]) {
+      .links {
+        justify-content: flex-start;
+      }
+
+      tabbed-window-link {
+        flex: 0 0 auto;
+      }
+    }
+  }
+
+  &[header-location="right"] {
+    &:not([adjust-links-orientation]) {
+      .links {
+        justify-content: flex-start;
+      }
+
+      tabbed-window-link {
+        flex: 0 0 auto;
+      }
+    }
+  }
+}
