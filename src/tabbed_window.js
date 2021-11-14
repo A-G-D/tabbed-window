@@ -28,9 +28,6 @@ export class TabbedWindow extends HTMLElement {
     this.#tabs = [];
     this.#html = html;
 
-    this.appendChild(this.#header);
-    this.appendChild(this.#body);
-
     if (this.#header.newTabButton) {
       this.#header.newTabButton.addEventListener("click", () =>
         this.addNewTab()
@@ -66,18 +63,12 @@ export class TabbedWindow extends HTMLElement {
     return this.#header.newTabButton;
   }
 
-  // set newTabButton(btn) {
-  //   if (btn) {
-  //     if (this.newTabButton) {
-  //       this.header.replaceChild(btn, this.newTabButton);
-  //     } else {
-  //       this.classList.add("new-tab-button");
-  //       this.header.appendChild(btn);
-  //       btn.addEventListener("click", () => this.addNewTab());
-  //     }
-  //     this.#newTabButton = btn;
-  //   }
-  // }
+  set newTabButton(btn) {
+    if (btn) {
+      this.#header.newTabButton = btn;
+      btn.addEventListener("click", () => this.addNewTab());
+    }
+  }
 
   get headerLocation() {
     return this.getAttribute("header-location");
@@ -118,18 +109,49 @@ export class TabbedWindow extends HTMLElement {
 
   showTab(tab) {
     if (this.currentTab === tab) return;
+
+    const beforeSwitch = new CustomEvent("tab-beforeswitch", {
+      cancelable: true,
+      detail: {
+        currentTab: this.currentTab,
+      },
+    });
+    const canceled = !this.dispatchEvent(beforeSwitch);
+    if (canceled) return;
+
     if (this.currentTab != null) this.currentTab.hide();
     if (tab != null) tab.show();
     this.currentTab = tab;
+
+    const onSwitch = new CustomEvent("tab-switch", {
+      detail: {
+        previousTab: this.currentTab,
+        currentTab: tab,
+      },
+    });
+    this.dispatchEvent(onSwitch);
   }
 
   removeTabByIndex(index) {
     if (index < this.tabs.length) {
+      const beforeClose = new CustomEvent("tab-beforeclose", {
+        cancelable: true,
+        detail: {
+          tab: this.currentTab,
+          index: index,
+        },
+      });
+      const canceled = !this.dispatchEvent(beforeClose);
+      if (canceled) return;
+
       const currentIndex = this.tabs.indexOf(this.currentTab);
       const tab = this.tabs[index];
       this.tabs.splice(index, 1);
       this.links.removeChild(tab.link);
       this.contents.removeChild(tab.content);
+
+      const onClose = new CustomEvent("tab-close");
+      this.dispatchEvent(onClose);
 
       if (tab === this.currentTab) {
         this.currentTab = null;
@@ -149,6 +171,13 @@ export class TabbedWindow extends HTMLElement {
     if (index > this.tabs.length) {
       throw new Error("Index out of bounds!");
     }
+
+    const beforeOpen = new CustomEvent("tab-beforeopen", {
+      cancelable: true,
+      detail: { index },
+    });
+    const canceled = !this.dispatchEvent(beforeOpen);
+    if (canceled) return;
 
     if (index < 0) {
       index = this.tabs.length + index;
@@ -178,6 +207,9 @@ export class TabbedWindow extends HTMLElement {
       this.links.insertBefore(tab.link, nextTab.link);
       this.contents.insertBefore(tab.content, nextTab.content);
     }
+
+    const onOpen = new CustomEvent("tab-open", { detail: { tab, index } });
+    this.dispatchEvent(onOpen);
 
     this.showTabByIndex(index);
 

@@ -33,6 +33,18 @@ export class TabbedWindowHeader extends HTMLElement {
     return this.#newTabButton;
   }
 
+  set newTabButton(btn) {
+    if (btn) {
+      if (this.#newTabButton) {
+        this.replaceChild(btn, this.#newTabButton);
+      } else {
+        btn.classList.add("new-tab-button");
+        this.appendChild(btn);
+      }
+      this.#newTabButton = btn;
+    }
+  }
+
   get headerLocation() {
     return this.getAttribute("header-location");
   }
